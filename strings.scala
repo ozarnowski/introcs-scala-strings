@@ -24,7 +24,15 @@ object strings  {
 
    def getSentenceType(sentence : String) : String = {
      
-      "unknown"
+        if (sentence.endsWith("."))
+        "declarative"
+        else if (sentence.endsWith("!"))
+        "exclamatory"
+        else if (sentence.endsWith("?"))
+        "interrogative"
+        else
+        "unknown"
+        
    }
 
 /*
@@ -40,8 +48,15 @@ object strings  {
  */
 
    def getFormattedName(name : String) : String = {
-     
-      "name not calculated yet"
+       val number = name.count(_==' ') 
+     if (number == 1){
+       var Array(firstname,lastname) = name.split(" ")
+         (lastname + ", " + firstname)}
+      else if (number == 2) {
+       var Array(first, middle, last) = name.split(" ")
+         (last + ", " + first + " " + middle)}
+      else{
+          (name)}
    }
 
 }
